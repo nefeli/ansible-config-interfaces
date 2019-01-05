@@ -1,0 +1,28 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+vagrant:
+  platforms:
+    - name: ubuntu1804
+      box: geerlingguy/ubuntu1804
+      box_url: https://vagrantcloud.com/geerlingguy/boxes/ubuntu1804/versions/1.0.5/providers/virtualbox.box
+    - name: ubuntu1604
+      box: geerlingguy/ubuntu1604
+      box_url: https://vagrantcloud.com/geerlingguy/boxes/ubuntu1604/versions/1.2.4/providers/virtualbox.box
+    - name: ubuntu/trusty64
+      box: trusty64
+      box_url: https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/14.04/providers/virtualbox.box
+  providers:
+    - name: virtualbox
+      type: virtualbox
+      options:
+        memory: 512
+        cpus: 2
+  instances:
+    - name: ansible-config-interfaces
+      ansible_groups:
+        - group1
+verifier:
+  name: testinfra
